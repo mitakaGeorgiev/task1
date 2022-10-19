@@ -17,7 +17,6 @@ public class Main {
 
         matrix.printMatrix();
 
-
         List<String> ninjaCommands = Arrays.stream(scanner.nextLine()
                         .split(""))
                 .collect(Collectors.toList());
