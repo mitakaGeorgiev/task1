@@ -30,6 +30,7 @@ public class Main {
                     matrix.moveUp(firstNinja);
                     break;
                 case "D":
+
                     matrix.moveDown(firstNinja);
                     break;
                 case "L":
