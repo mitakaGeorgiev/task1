@@ -29,7 +29,6 @@ public class Main {
                     matrix.moveUp(firstNinja);
                     break;
                 case "D":
-
                     matrix.moveDown(firstNinja);
                     break;
                 case "L":
@@ -38,9 +37,6 @@ public class Main {
                 default:
             }
 
-
-
-            matrix.moveRight(firstNinja);
 
             matrix.printMatrix();
             System.out.println();

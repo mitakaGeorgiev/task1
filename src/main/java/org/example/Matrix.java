@@ -72,13 +72,16 @@ public class Matrix {
             for (int j = 0; j < columns; j++)
                 if ((matrix[i][j] == currentNinjaCharacter) && (j + 1 < columns)) {
 
-                    Character futureChar=matrix[i][j + 1] = currentNinjaCharacter;
+                    Character futureChar = matrix[i][j + 1];
+
                     Vegetable veggieToBeEaten=checkSquare(futureChar,currentNinja);
-                    if(veggieToBeEaten!=null){
-                        currentNinja.getBag().add(veggieToBeEaten);
-                    }
+                     if(veggieToBeEaten!=null) {
+                         currentNinja.getBag().add(veggieToBeEaten);
+                     }
+
                     matrix[i][j] = '-';
-                    futureChar = currentNinjaCharacter;
+                    matrix[i][j + 1] = currentNinjaCharacter;
+                    break;
                 }
         }
 
@@ -89,13 +92,16 @@ public class Matrix {
             for (int j = 0; j < columns; j++)
                 if ((matrix[i][j] == currentNinjaCharacter) && (j -1 >=0 )) {
 
-                    Character futureChar=matrix[i][j - 1] = currentNinjaCharacter;
+                    Character futureChar=matrix[i][j - 1];
+
                     Vegetable veggieToBeEaten=checkSquare(futureChar,currentNinja);
                     if(veggieToBeEaten!=null){
                         currentNinja.getBag().add(veggieToBeEaten);
                     }
+
                     matrix[i][j] = '-';
-                    futureChar = currentNinjaCharacter;
+                    matrix[i][j - 1] = currentNinjaCharacter;
+                    break;
                 }
         }
 
@@ -106,31 +112,35 @@ public class Matrix {
             for (int j = 0; j < columns; j++)
                 if ((matrix[i][j] == currentNinjaCharacter) && (i -1 >=0 )) {
 
-                    Character futureChar=matrix[i-1][j] = currentNinjaCharacter;
+                    Character futureChar=matrix[i-1][j] ;
+
                     Vegetable veggieToBeEaten=checkSquare(futureChar,currentNinja);
-                    System.out.println("silata e "+veggieToBeEaten.getPower());
                     if(veggieToBeEaten!=null){
                         currentNinja.getBag().add(veggieToBeEaten);
                     }
                     matrix[i][j] = '-';
-                    futureChar = currentNinjaCharacter;
+                    matrix[i-1][j] = currentNinjaCharacter;
+                    break;
                 }
         }
 
     }
     public void moveDown(Ninja currentNinja) {
         Character currentNinjaCharacter = currentNinja.getName().charAt(0);
+        first:
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++)
                 if ((matrix[i][j] == currentNinjaCharacter) && (i +1 <rows )) {
 
-                    Character futureChar=matrix[i+1][j] = currentNinjaCharacter;
+                    Character futureChar=matrix[i+1][j];
+
                     Vegetable veggieToBeEaten=checkSquare(futureChar,currentNinja);
                     if(veggieToBeEaten!=null){
                         currentNinja.getBag().add(veggieToBeEaten);
                     }
                     matrix[i][j] = '-';
-                    futureChar = currentNinjaCharacter;
+                    matrix[i+1][j] = currentNinjaCharacter;
+                    break first;
                 }
         }
 
